@@ -1,5 +1,26 @@
 import React, { useEffect, useState } from "react";
 
+const Number = ({
+  value,
+  className = "",
+}: {
+  value: number;
+  className?: string;
+}) => {
+  const [count, setCount] = useState(value);
+  const animateClass = count !== value ? "animate-bounce" : "";
+  useEffect(() => {
+    setCount(value);
+  }, [value]);
+  return (
+    <span
+      className={`text-4xl sm:text-5xl font-mono ${animateClass} ${className}`}
+    >
+      {count < 10 && "0"}
+      {count}
+    </span>
+  );
+};
 export const Countdown: React.FC<{ className: string }> = ({
   className = "",
 }) => {
@@ -44,31 +65,19 @@ export const Countdown: React.FC<{ className: string }> = ({
       className={`grid grid-flow-col gap-5 text-center auto-cols-max ${className}`}
     >
       <div className="flex flex-col">
-        <span className="countdown font-mono text-3xl sm:text-5xl text-purple-400">
-          {/* @ts-ignore */}
-          <span style={{ "--value": countdown.days }}></span>
-        </span>
+        <Number value={countdown.days} className="text-purple-400" />
         days
       </div>
       <div className="flex flex-col">
-        <span className="countdown font-mono text-3xl sm:text-5xl text-green-400">
-          {/* @ts-ignore */}
-          <span style={{ "--value": countdown.hours }}></span>
-        </span>
+        <Number value={countdown.hours} className="text-green-400" />
         hours
       </div>
       <div className="flex flex-col">
-        <span className="countdown font-mono text-3xl sm:text-5xl text-red-400">
-          {/* @ts-ignore */}
-          <span style={{ "--value": countdown.minutes }}></span>
-        </span>
+        <Number value={countdown.minutes} className="text-red-400" />
         min
       </div>
       <div className="flex flex-col">
-        <span className="countdown font-mono text-3xl sm:text-5xl text-yellow-400">
-          {/* @ts-ignore */}
-          <span style={{ "--value": countdown.seconds }}></span>
-        </span>
+        <Number value={countdown.seconds} className="text-yellow-400" />
         sec
       </div>
     </div>

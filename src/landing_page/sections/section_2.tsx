@@ -22,14 +22,22 @@ const CakeButton: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <div>
+    <div className={`flex items-center ${className}`}>
       <button
-        className={`flex items-center bg-indigo-100 z-30 text-indigo-500 rounded-lg font-bold py-1 px-2 ${className}`}
+        className="flex items-center bg-indigo-100 z-30 text-indigo-500 rounded-lg font-bold py-1 px-2"
         onClick={handleCakeClick}
       >
         Generate Cake
         <CakeIcon className="w-3 h-3 ml-1" />
       </button>
+      {cakes.length > 0 && (
+        <button
+          onClick={() => setCakes([])}
+          className="flex ml-1 items-center bg-red-100 z-30 text-red-500 rounded-lg font-bold py-1 px-2"
+        >
+          Clear Cakes
+        </button>
+      )}
       {cakes}
     </div>
   );
