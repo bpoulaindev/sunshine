@@ -45,24 +45,28 @@ export const Countdown: React.FC<{ className: string }> = ({
     >
       <div className="flex flex-col">
         <span className="countdown font-mono text-3xl sm:text-5xl text-purple-400">
+          {/* @ts-ignore */}
           <span style={{ "--value": countdown.days }}></span>
         </span>
         days
       </div>
       <div className="flex flex-col">
         <span className="countdown font-mono text-3xl sm:text-5xl text-green-400">
+          {/* @ts-ignore */}
           <span style={{ "--value": countdown.hours }}></span>
         </span>
         hours
       </div>
       <div className="flex flex-col">
         <span className="countdown font-mono text-3xl sm:text-5xl text-red-400">
+          {/* @ts-ignore */}
           <span style={{ "--value": countdown.minutes }}></span>
         </span>
         min
       </div>
       <div className="flex flex-col">
         <span className="countdown font-mono text-3xl sm:text-5xl text-yellow-400">
+          {/* @ts-ignore */}
           <span style={{ "--value": countdown.seconds }}></span>
         </span>
         sec
